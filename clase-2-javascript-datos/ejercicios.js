@@ -22,11 +22,11 @@ edad >= 18
 // const horasDeEstudio = 1;
 //           true       o     flase
 //                 true                      y        false
-// if ((dia === "viernes" || dia === "sabado") && horasDeEstudio >= 2) {
-//   console.log("Puedes salir");
-// } else {
-//   console.log("No puedes salir");
-// }
+if ((dia === "viernes" || dia === "sabado") && horasDeEstudio >= 2) {
+  console.log("Puedes salir");
+} else {
+  console.log("No puedes salir");
+}
 
 const viernes = true;
 const sabado = false;
@@ -37,3 +37,4 @@ const hDeEstudio = 1;
 (viernes || sabado) && hDeEstudio > 1
   ? console.log("Puedes salir")
   : console.log("No puedes salir");
+
