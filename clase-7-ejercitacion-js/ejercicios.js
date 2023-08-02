@@ -166,7 +166,7 @@
 // Para más de dos usuarias, debe mostrar: NOMBRE_USUARIA_1, NOMBRE_USUARIA_2 y X persona(s) más están conectadas
 
 // const usuariasConectadas = ["Paz", "Mar"]; // Tatiana esta conectada.
-const usuariasConectadas = ["Tatiana", "Carolina"]; // Tatiana y Carolina están conectadas.
+const usuariasConectadas = ["Tatiana", "Carolina", "Tatiana", "Tatiana"]; // Tatiana y Carolina están conectadas.
 // const usuarias = ["Tatiana", "Carolina", "Daniela", "Magali", "Luisa"] // Tatiana, Carolina y 3 personas(s) están conectadas.
 
 let mensaje = "";
@@ -177,6 +177,105 @@ if (cantidadDeConectadas === 1) {
   mensaje = usuariasConectadas[0] + " esta conectada.";
 } else if (cantidadDeConectadas === 2) {
   mensaje = usuariasConectadas[0] + " y " + usuariasConectadas[1] + " estan conectadas.";
+} else {
+  let alumnasFinales = 0;
+
+  for (let i = 0; i < usuariasConectadas.length; i++) {
+    alumnasFinales = usuariasConectadas.length - 2;
+  }
+  
+  if(alumnasFinales > 1) {
+    mensaje = `${usuariasConectadas[0]}, ${usuariasConectadas[1]} y ${alumnasFinales} personas(s) están conectadas.`
+  } else {
+    mensaje = `${usuariasConectadas[0]}, ${usuariasConectadas[1]} y 1 persona está conectada.`
+  }
 }
 
-console.log(mensaje);
+// console.log(mensaje);
+
+
+// Crear un programa que mediante un array de frutas (🍎, 🍐y 🍑 ) devuelva un mensaje con la cantidad que hay de cada una. Ejemplo:
+
+// Ingrese frutas: 🍎🍎🍐🍑🍎🍑
+
+// Hay 3 🍎, 1 🍐 y 2 🍑
+
+const frutas = ["🍎","🍎","🍐","🍑","🍎","🍑"]
+let manzana = []
+let pera = []
+let durazno = []
+
+for (let i = 0; i < frutas.length; i++) {
+  if(frutas[i] === "🍎") {
+    manzana.push(frutas[i])
+  } else if(frutas[i] === "🍐") {
+    pera.push(frutas[i])
+  } else if(frutas[i] === "🍑") {
+    durazno.push(frutas[i])
+  }
+}
+
+mensaje = `Hay ${manzana.length} 🍎, ${pera.length} 🍐 y ${durazno.length} 🍑`
+
+console.log(mensaje)
+
+// Crear un programa que permita ingresar una lista de 🐵(monos) y 🍌(bananas). Preguntar luego cuántas bananas come cada mono. Mostrar en un mensaje si hay suficientes bananas para cada mono. Ejemplo:
+
+// Ingresar monos y bananas: 🐵🍌🍌🍌🐵🍌🐵🍌
+// Cuántas bananas come un mono?: 2
+// ¡Oh no!¡No hay suficientes bananas para los monos! 😭
+
+// const bananasYMonos = ["🐵", "🍌","🐵", "🍌","🐵", "🍌", "🍌", "🍌", "🍌"]
+// const bananasPorMono = 2
+// let monos = []
+// let bananas = [] 
+
+// for (let i = 0; i < bananasYMonos.length; i++) {
+//   if(bananasYMonos[i] === "🐵") {
+//     monos.push(bananasYMonos[i])
+//   } else if(bananasYMonos[i] === "🍌") {
+//     bananas.push(bananasYMonos[i])
+//   } 
+// }
+
+// console.log(bananas, monos)
+
+// let bananasFaltantes = monos.length % bananas.length === 0
+
+// console.log(bananasFaltantes)
+
+// if(bananasFaltantes){ 
+//   console.log("¡Oh no!¡No hay suficientes bananas para los monos! 😭")
+// } else {
+//   console.log("¡Hay suficientes bananas para los monos! :D")
+// }
+
+// Analizar un array de 5 símbolos y determine si son iguales. Si lo son, mostrar un mensaje indicando que se ha ganado. Si se ingresan más de 5 sólo deben evaluarse los primeros 5. Ejemplo:
+
+// Ingrese símbolos: ⭐️⭐️⭐️💫✨
+// ¡Has perdido! Inténtalo nuevamente
+
+// Ingrese símbolos: 💫💫💫💫💫
+// ¡Felicitaciones! Has ganado
+
+let array = ["⭐️", "⭐️", "⭐️", "⭐️", "💫", "💫"]
+
+const arrayCortada = array.slice(0,5)
+let areEqual = true;
+let message;
+
+// Verificar si todos los símbolos son iguales
+for (let i = 1; i < arrayCortada.length; i++) {
+  if (arrayCortada[i] !== arrayCortada[0]) {
+    areEqual = false;
+  }
+}
+
+// Mostrar el resultado
+if (areEqual) {
+  message = ("¡Felicitaciones! Has ganado");
+} else {
+  message = ("¡Has perdido! Inténtalo nuevamente");
+}
+
+console.log(message)
