@@ -62,4 +62,89 @@
 
 // CONSEJO: Utilizar operador aritmetico de resto (%)
 
+//------------------------------------------
 
+//CONSEJO GLOBAL: En todos los ejercicios hay que crear nuevos arrays.
+
+
+// Crear un programa que mediante un array de frutas (🍎, 🍐y 🍑 ) devuelva un mensaje con la cantidad que hay de cada una. Ejemplo:
+
+// Ingrese frutas: 🍎🍎🍐🍑🍎🍑
+
+// Hay 3 🍎, 1 🍐 y 2 🍑
+
+// input -> datos que usamos
+// const arrayDeFrutas = ["M", "M", "P" , "D" ,"M" ,"D","D"]; // para acceder al dato hay que indicarle la posición
+// let manzanas = [];
+// let peras = [];
+// let duraznos = [];
+// let mensaje = "";
+
+// //                          7
+// for (let i = 0; i < arrayDeFrutas.length; i++) {
+//   // console.log(`En la posicioón ${i} hay una ${arrayDeFrutas[i]}`)
+  
+//   //       M es estrictamente igual a M? = true
+//   if(arrayDeFrutas[i] === "M") {
+//     manzanas.push("M")
+//   } else if (arrayDeFrutas[i] === "P"){
+//     peras.push("P")
+//   } else {
+//     duraznos.push("D")
+//   }
+// }
+
+// console.log(peras)
+
+// mensaje = `Tienes ${manzanas} 🍎 ${peras} 🍐 y ${duraznos} 🍑.`
+
+//EJERCICIO 3: 
+
+// Crear un programa que a partir de una lista de 🐵(monos) y 🍌(bananas). Guardar en una variable cuántas bananas come cada mono. Mostrar en un mensaje si hay suficientes bananas para cada mono. Ejemplo:
+
+// Ingresar monos y bananas: ["mono", "banana"]
+// Cada mono come 1 banana
+// ¡Oh no!¡No hay suficientes bananas para los monos! 😭
+// ¡Oh si! Hay suficioentes bananas para los monos :D
+
+// CONSEJO: Utilizar operador aritmetico de resto (%)
+
+const monosYBananas = ["mono", "banana", "banana", "mono", "mono", "banana","banana","banana","banana"] // para acceder al dato hay que indicarle la posición
+let monos = 0 // 2
+let bananas = 0 // 2
+let bananaParaCadaMono = 2
+let mensaje = ""
+
+// fragmento de código que se repite
+// indice -> dato que tenemos a disposición dentro del bucle
+
+//Saber cuantos monos y bananas hay en el array monosYBananas
+for(let i = 0; i < monosYBananas.length; i++) { 
+  if(monosYBananas[i] === "mono"){
+    monos += 1
+  } else {
+    bananas += 1
+  }
+}
+
+//                       6 / 3 = 0
+let bananasFaltantes = bananas % bananaParaCadaMono // true
+
+console.log(bananaParaCadaMono)
+
+
+
+
+
+
+
+
+
+
+
+
+// if(bananasFaltantes === true) {
+//   console.log("¡Oh si! Hay suficioentes bananas para los monos :D")
+// } else {
+//   console.log("¡Oh no!¡No hay suficientes bananas para los monos! 😭")
+// }
