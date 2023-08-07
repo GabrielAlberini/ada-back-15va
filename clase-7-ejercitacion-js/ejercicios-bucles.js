@@ -127,10 +127,16 @@ for(let i = 0; i < monosYBananas.length; i++) {
   }
 }
 
-//                       6 / 3 = 0
-let bananasFaltantes = bananas % bananaParaCadaMono // true
+// Verificar si hay suficientes bananas para los monos
+if (bananas >= monos * bananaParaCadaMono) {
+  mensaje = "¡Oh si! Hay suficientes bananas para los monos :D";
+} else {
+  mensaje = "¡Oh no! ¡No hay suficientes bananas para los monos! 😭";
+}
 
-console.log(bananaParaCadaMono)
+// Mostrar el resultado
+console.log(`Cada mono come ${bananaParaCadaMono} banana(s)`);
+console.log(mensaje);
 
 
 
