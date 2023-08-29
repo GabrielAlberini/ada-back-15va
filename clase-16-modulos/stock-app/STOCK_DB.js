@@ -115,5 +115,17 @@ exports.getTotalCategoryAmount = (categoryUser) => {
   return count
 } 
 
-exports.getTotalAmount = () => {} // -> la suma total de todo el stock
+exports.getTotalAmount = () => {
+  let totalAmount = 0
+
+  for(let category in stock) {
+    for(let subCategory in stock[category]) {
+      for(let product in stock[category][subCategory]) {
+        totalAmount += stock[category][subCategory][product]
+      }
+    }
+  }
+  return totalAmount
+} 
+
 
