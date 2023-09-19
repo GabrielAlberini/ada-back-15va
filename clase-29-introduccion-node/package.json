@@ -1,0 +1,21 @@
+{
+  "name": "introduction-node",
+  "version": "1.0.0",
+  "description": "Project to learn node",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "node",
+    "npm",
+    "backend"
+  ],
+  "author": "Alberini",
+  "license": "ISC",
+  "dependencies": {
+    "colors": "^1.4.0",
+    "uuid": "^9.0.1"
+  }
+}
