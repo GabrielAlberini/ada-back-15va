@@ -5,33 +5,33 @@
 // Desarrollar 3 funciones que permitan leer, borrar y actualizar el JSON.
 // Exportar las funciones usando la sintaxis de ECMAScript Modules (export {...}).
 
-import { readFileSync, writeFileSync } from "node:fs";
+import {readFileSync, writeFileSync} from "node:fs"
+
 
 //1
 const getHistory = () => {
   const history = readFileSync("history.json");
   const arrayHistory = JSON.parse(history);
-  const jsonHistory = JSON.stringify(arrayHistory);
+  const jsonHistory = JSON.stringify(arrayHistory)
 
-  return jsonHistory;
+  return jsonHistory
+
 };
 
 const eraseHistory = () => {
   writeFileSync("history.json", "[]");
-  return "Deleted History";
-};
+} 
 
-const pushMessage = (message) => {
-  if (
-    message.message !== "--history" ||
-    message.message !== "--eraseMessages"
-  ) {
+const pushMessage = (message) =>{
+  console.log(message);
+  if (message.message !== "--history" || message.message !== "--eraseMessages"){
     const history = readFileSync("history.json");
     const arrayHistory = JSON.parse(history);
     arrayHistory.push(message);
     const jsonHistory = JSON.stringify(arrayHistory);
     writeFileSync("history.json", jsonHistory);
-  }
-};
+  } 
+}
 
-export { getHistory, eraseHistory, pushMessage };
+
+export {getHistory, eraseHistory, pushMessage};
