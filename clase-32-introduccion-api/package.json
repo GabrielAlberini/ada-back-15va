@@ -1,0 +1,23 @@
+{
+  "name": "tcp-sorting",
+  "version": "1.0.0",
+  "description": "Desarrollar una aplicación que corra en un servidor TCP y que permita el registro, validación, obtención de información y eliminación de usuarios en una base de datos local en formato JSON.",
+  "main": "client.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "npm",
+    "tcp",
+    "node",
+    "protocol",
+    "server/client"
+  ],
+  "author": "alberini",
+  "license": "ISC",
+  "dependencies": {
+    "readline-sync": "^1.4.10",
+    "uuid": "^9.0.1"
+  }
+}

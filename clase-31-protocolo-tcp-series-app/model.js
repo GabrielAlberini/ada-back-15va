@@ -8,10 +8,12 @@ const updateDB = (film) => {
   writeFileSync(PATH, jsonData);
   return "Update collection.";
 };
+
 const eraseDB = () => {
   writeFileSync(PATH, "[]");
   return "Deleted database.";
 };
+
 const showDB = () => JSON.parse(readFileSync(PATH));
 
 export { updateDB, eraseDB, showDB };

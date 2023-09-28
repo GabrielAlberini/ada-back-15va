@@ -1,0 +1,17 @@
+[
+	{
+		"username": "username-a",
+		"userId": "UUID-GENERATED-ID",
+		"password": "HASHED-PASSWORD"
+	},
+	{
+		"username": "username-b",
+		"userId": "UUID-GENERATED-ID",
+		"password": "HASHED-PASSWORD"
+	},
+	{
+		"username": "username-c",
+		"userId": "UUID-GENERATED-ID",
+		"password": "HASHED-PASSWORD"
+	}
+]

@@ -1,0 +1,27 @@
+// - server.js
+//   ► Recibe todas las solicitudes del cliente y las deriva a controller.js.
+//   ► Deriva las acciones a controller.js según la solicitud y los parámetros involucrados.
+
+// MÓDULO SERVIDOR
+import net from "node:net";
+
+const serverTCP = net.createServer();
+const PORT = 7203;
+
+serverTCP.on("connection", (socket) => {
+  socket.on("data", (clientData) => {
+    const clientMsg = clientData.toString();
+    console.log("CLIENT -->", clientMsg);
+  });
+
+  socket.on("close", () => console.log("Connection stopped"));
+  socket.on("error", (err) => console.log(err));
+
+  console.log("Client connected!");
+});
+
+// SERVER RUNNING
+
+serverTCP.listen(PORT, () => {
+  console.log("Server is running on port", PORT);
+});
