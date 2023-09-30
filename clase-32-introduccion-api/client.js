@@ -6,7 +6,7 @@ import net from "node:net";
 import readline from "readline-sync";
 
 const OPTIONS = {
-  port: 7203,
+  port: 7205,
   host: "127.0.0.1",
 };
 
@@ -14,43 +14,70 @@ const clientTCP = net.createConnection(OPTIONS);
 
 const sendMessage = () => {
   let clientMsg = readline.question("CLIENT --> ");
-  const arrayClientMsg = clientMsg.split(" ");
-  // [ '--createNewUser', 'name', 'gabriel', 'password', 'test123' ]
+  const arrayClientMsg = clientMsg.split(" "); // split() ->  convierte un string a array, le tengo que pasar por () con QUE lo quiero separar.
 
   while (clientMsg.startsWith("--createNewUser")) {
+    // VALIDACIONES
     const iDeName = arrayClientMsg.indexOf("name"); // 1
     const iDePass = arrayClientMsg.indexOf("password"); // 3
 
-    if (iDeName < 0) {
-      console.log("Debes incluir el argumento name en los parametros");
-    } else {
-      console.log(arrayClientMsg[iDeName + 1]);
+    if (iDeName !== -1 && iDePass !== -1) {
+      const isNameOk = arrayClientMsg[iDeName + 1] !== "password"; // true o un false
+      const isPassOk = arrayClientMsg[iDePass + 1] !== undefined;
+      if (isNameOk && isPassOk) {
+        clientTCP.write(clientMsg);
+        return;
+      }
     }
+    clientMsg = readline.question("CLIENT --> ");
+  }
 
-    if (iDePass < 0) {
-      console.log("Debes incluir el argumento password en los parametros");
-    } else {
-      console.log(arrayClientMsg[iDePass + 1]);
+  while (clientMsg.startsWith("--login")) {
+    const iDeName = arrayClientMsg.indexOf("name"); // 1
+    const iDePass = arrayClientMsg.indexOf("password"); // 3
+
+    if (iDeName !== -1 && iDePass !== -1) {
+      const isNameOk = arrayClientMsg[iDeName + 1] !== "password"; // true o un false
+      const isPassOk = arrayClientMsg[iDePass + 1] !== undefined;
+      if (isNameOk && isPassOk) {
+        clientTCP.write(clientMsg);
+        return;
+      }
     }
+    clientMsg = readline.question("CLIENT --> ");
+  }
 
-    clientTCP.write(clientMsg);
+  while (clientMsg.startsWith("--getUsers")) {
+    if (arrayClientMsg.length === 1) {
+      clientTCP.write(clientMsg);
+      return;
+    }
+    clientMsg = readline.question("CLIENT --> ");
+  }
 
+  while (clientMsg.startsWith("--getUserInfo")) {
+    const iDeId = arrayClientMsg.indexOf("id");
+
+    if (iDeId !== -1) {
+      const isIdOk = arrayClientMsg[iDeId + 1] !== undefined;
+      if (isIdOk) {
+        clientTCP.write(clientMsg);
+        return;
+      }
+    }
     clientMsg = readline.question("CLIENT --> ");
   }
-  while (clientMsg === "--login") {
-    console.log("Designar método para loguearse");
-    clientMsg = readline.question("CLIENT --> ");
-  }
-  while (clientMsg === "--getUsers") {
-    console.log("Desingar método para obtener todos los usuarios");
-    clientMsg = readline.question("CLIENT --> ");
-  }
-  while (clientMsg === "--getUserInfo") {
-    console.log("Designar método para obtener información de un usuario");
-    clientMsg = readline.question("CLIENT --> ");
-  }
-  while (clientMsg === "--deleteUser") {
-    console.log("Designar método para borrar un usuario");
+
+  while (clientMsg.startsWith("--deleteUser")) {
+    const iDeId = arrayClientMsg.indexOf("id");
+
+    if (iDeId !== -1) {
+      const isIdOk = arrayClientMsg[iDeId + 1] !== undefined;
+      if (isIdOk) {
+        clientTCP.write(clientMsg);
+        return;
+      }
+    }
     clientMsg = readline.question("CLIENT --> ");
   }
 
@@ -64,7 +91,8 @@ clientTCP.on("connect", () => {
 
 clientTCP.on("data", (serverData) => {
   const serverMsg = serverData.toString();
-  console.log("SERVER -->", serverMsg);
+  const objData = JSON.parse(serverMsg);
+  console.log(objData);
   sendMessage();
 });
 
