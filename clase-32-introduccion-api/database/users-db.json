@@ -13,5 +13,21 @@
     "username": "username-c",
     "userId": "UUID-GENERATED-ID",
     "password": "HASHED-PASSWORD"
+  },
+  { "username": "pepe", "userId": "1", "password": "123" },
+  {
+    "username": "abel",
+    "userId": "ea10a762-a190-4f89-98c8-ce64b0737a4a",
+    "password": "12345"
+  },
+  {
+    "username": "gabriel",
+    "userId": "f18b2da3-7500-4f68-96e6-c714534c23fb",
+    "password": "a665a45920422f9d417e4867efdc4fb8a04a1f3fff1fa07e998e86f7f7a27ae3"
+  },
+  {
+    "username": "carolina",
+    "userId": "fc1bd45e-c5c1-43dd-a43f-30c53cd810a1",
+    "password": "¦e¤Y B/A~HgïÜO¸ J\u001f?ÿ\u001f ~÷÷¢zã"
   }
 ]

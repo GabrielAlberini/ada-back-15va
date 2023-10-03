@@ -6,7 +6,7 @@ import net from "node:net";
 import readline from "readline-sync";
 
 const OPTIONS = {
-  port: 7205,
+  port: 7204,
   host: "127.0.0.1",
 };
 
@@ -55,8 +55,9 @@ const sendMessage = () => {
     clientMsg = readline.question("CLIENT --> ");
   }
 
+  // --getUserInfo id -> ["--getUserInfo", "id"]
   while (clientMsg.startsWith("--getUserInfo")) {
-    const iDeId = arrayClientMsg.indexOf("id");
+    const iDeId = arrayClientMsg.indexOf("id"); // 1
 
     if (iDeId !== -1) {
       const isIdOk = arrayClientMsg[iDeId + 1] !== undefined;
@@ -81,6 +82,7 @@ const sendMessage = () => {
     clientMsg = readline.question("CLIENT --> ");
   }
 
+  console.log("Debes ingresar los datos correctamente.");
   sendMessage();
 };
 

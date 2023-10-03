@@ -9,32 +9,43 @@ import {
 } from "../controller/controller.js";
 
 const serverTCP = net.createServer();
-const PORT = 7205;
+const PORT = 7204;
 
 const processParams = (request) => {
+  // request -> --createNewUser name gabriel password test123
   const arrayClientMsg = request.split(" ");
-  // [ "--getUsers" ]
   const action = arrayClientMsg[0].slice(2);
-  // getUsers
+  // --createNewUser
+  // createNewUser
 
   // A continuación debería ejecutar las funciones del controlador
+  // action -> getUserInfo
+
+  // --deleteUser id 1
   switch (action) {
     case "getUserInfo":
-      return getUserInfo();
+      return getUserInfo(arrayClientMsg[2]);
     case "getUsers":
       return getUsers();
     case "createNewUser":
-      return createNewUser();
+      return createNewUser({
+        username: arrayClientMsg[2],
+        password: arrayClientMsg[4],
+      });
     case "deleteUser":
-      return deleteUser();
+      return deleteUser(arrayClientMsg[2]);
     case "login":
-      return login();
+      return login({
+        username: arrayClientMsg[2],
+        password: arrayClientMsg[4],
+      });
   }
 };
 
 serverTCP.on("connection", (socket) => {
   socket.on("data", (clientData) => {
     const clientMsg = clientData.toString();
+    // --getUserInfo id 1
     const serverResponse = processParams(clientMsg); // -> envia el mensaje del cliente para evaluar y ejecutar funciones del controller
 
     socket.write(JSON.stringify(serverResponse));
