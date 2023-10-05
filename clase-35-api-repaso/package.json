@@ -1,0 +1,24 @@
+{
+  "name": "api",
+  "version": "1.0.0",
+  "description": "Proyecto para practicar: servidor TCP - CRUD",
+  "main": "client.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "keywords": [
+    "npm",
+    "serve",
+    "client",
+    "tcp",
+    "api"
+  ],
+  "author": "alberini",
+  "license": "ISC",
+  "dependencies": {
+    "readline-sync": "^1.4.10",
+    "uuid": "^9.0.1"
+  }
+}

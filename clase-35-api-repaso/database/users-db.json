@@ -1,0 +1,13 @@
+[
+  { "username": "username-a", "userId": "1", "password": "HASHED-PASSWORD" },
+  {
+    "username": "gabriel",
+    "password": "123",
+    "userId": "91cf6fa8-f9a2-4c80-b848-25e0d52f8f3b"
+  },
+  {
+    "username": "test1",
+    "password": "123",
+    "userId": "4c353733-5ef6-470c-9a0b-4a037a7815a7"
+  }
+]
