@@ -16,6 +16,14 @@ const sendMessage = () => {
   let clientMsg = readline.question("CLIENT --> ");
   const arrayClientMsg = clientMsg.split(" "); // split() ->  convierte un string a array, le tengo que pasar por () con QUE lo quiero separar.
 
+  while (clientMsg.startsWith("--getUsers")) {
+    if (arrayClientMsg.length === 1) {
+      clientTCP.write(clientMsg);
+      return;
+    }
+    clientMsg = readline.question("CLIENT --> ");
+  }
+
   while (clientMsg.startsWith("--createNewUser")) {
     // VALIDACIONES
     const iDeName = arrayClientMsg.indexOf("name"); // 1
@@ -43,14 +51,6 @@ const sendMessage = () => {
         clientTCP.write(clientMsg);
         return;
       }
-    }
-    clientMsg = readline.question("CLIENT --> ");
-  }
-
-  while (clientMsg.startsWith("--getUsers")) {
-    if (arrayClientMsg.length === 1) {
-      clientTCP.write(clientMsg);
-      return;
     }
     clientMsg = readline.question("CLIENT --> ");
   }
