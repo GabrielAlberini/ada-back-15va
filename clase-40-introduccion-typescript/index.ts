@@ -1,6 +1,6 @@
-import { calculadora } from "./calculator.ts";
-import { Operacion } from "./calculator.ts";
-import { saludar } from "./saludar.ts";
+import { calculadora } from "./calculator";
+import { Operacion } from "./calculator";
+import { saludar } from "./saludar";
 
 const main = () => {
   const args = process.argv;
