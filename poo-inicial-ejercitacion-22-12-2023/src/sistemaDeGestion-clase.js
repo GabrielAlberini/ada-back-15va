@@ -24,3 +24,6 @@ class Persona {
 
 const persona1 = new Persona("ailen", 33);
 const persona2 = new Persona("gabriel", 29);
+
+persona2.cambiarNombre("Pepe");
+console.log(persona2);
