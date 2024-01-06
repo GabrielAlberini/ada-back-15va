@@ -1,0 +1,19 @@
+{
+  "name": "poo-mvc-poo-5-1-2024",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "npx ts-node ./src/index.ts",
+    "dev:model": "npx ts-node ./src/model/bookModel.ts",
+    "dev:model-plants": "npx ts-node ./src/model/plantsModel.ts",
+    "build": "tsc"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "ts-node": "^10.9.2",
+    "typescript": "^5.3.3"
+  }
+}
